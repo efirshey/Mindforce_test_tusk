@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Mindforce
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: Mindforce
+  template:
+    metadata:
+      labels:
+        app: Mindforce
+    spec:
+      containers:
+        - name: Mindforce
+          image: Mindforce:1.11.0
+          ports:
+            - containerPort: 7777

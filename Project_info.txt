@@ -1,0 +1,40 @@
+Архітектура (швидкий опис)
+
+
+AWS структура:
+
+Amazon EKS — керований контроль-плейн Kubernetes.
+AWS CloudFormation — під капотом для eksctl (опис інфраструктури як код).
+Amazon EC2 (Managed Node Group + Auto Scaling) — воркер-вузли кластера (типи: t3/t2.small/medium), авто-масштабування.
+Amazon VPC — мережа кластера: підмережі, маршрути, Internet/NAT GW, Security Groups.
+AWS IAM — ролі/політики для кластера та нод; інтеграція з RBAC через aws-auth.
+AWS Load Balancer Controller — зовнішній IP/DNS (ALB/NLB) для сервісів.
+
+
+Налаштування Kubernetes:
+
+Deployment — базовий контролер розгортання застосунку.
+HPA — масштабує репліки Pod-ів за метриками (CPU тощо).
+Ingress Controller — доступ іззовні до сервісів.
+StatefulSet — для станних сервісів/баз даних.
+DaemonSet — для агентів/збору логів на кожному вузлі.
+
+
+Налаштування Docker-контейнерів:
+
+Мультистейдж-збірка з використанням найлегших базових образів (alpine/distroless).
+Інфраструктура (dev, stage, prod)
+Окремі акаунти AWS + Terraform, ізоляція Namespaces, розподіл ролей IAM.
+
+
+Система бекапів:
+
+Velero — бекап/відновлення кластера та PVC із збереженням у S3.
+
+
+Опис CI/CD:
+
+CI
+Лінт/формат, юніт-тести, покриття; збірка Docker-образу; push до Docker Hub.
+CD
+Ручне підтвердження; smoke/навантаження; тест міграцій.
