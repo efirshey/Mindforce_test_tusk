@@ -13,13 +13,13 @@
 
 ## Налаштування Kubernetes
 - **[Deployment](https://github.com/efirshey/Mindforce_test_tusk/blob/main/Deployment.yaml)** — базовий контролер розгортання.
-- **[HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)** — масштабує репліки за метриками (CPU тощо).
-- **[Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress/)** — доступ іззовні.
+- **[HPA](https://github.com/efirshey/Mindforce_test_task/blob/main/HPA.yaml)** — масштабує репліки за метриками (CPU тощо).
+- **[Ingress Controller](https://github.com/efirshey/Mindforce_test_task/blob/main/Ingress.yaml)** — доступ іззовні.
 - **[StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)** — для станних сервісів/БД.
 - **[DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)** — агенти/збір логів на кожному вузлі.
 
 ## Налаштування Docker-контейнерів
-- Мультистейдж-збірка з **найлегшими базовими образами** (alpine/distroless).
+- **[Мультi-стейдж бiлд](https://github.com/efirshey/Mindforce_test_task/blob/main/Dockerfile)** з **найлегшими базовими образами** (alpine/distroless).
 
 ## Інфраструктура: dev, stage, prod
 - Окремі акаунти **AWS** + **Terraform**, ізоляція **Namespaces**, розподіл ролей **IAM**.
